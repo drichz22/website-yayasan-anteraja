@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import navLogo from "../../shared/assets/Logo.jpeg";
+---
+
+<nav class="fixed top-0 left-0 w-full bg-white shadow-sm z-20">
+    <div class="flex items-center justify-between w-full py-5 px-4 relative">
+        <!-- Logo -->
+        <div class="flex items-center gap-4 ml-16 mr-4 lg:mr-0">
+            <a href="/" aria-label="Go to Home Page">
+                <Image src={navLogo} alt="Navbar Logo" class="w-[48px] h-[48px] cursor-pointer" />
+            </a>
+        </div>
+    </div>
+</nav>

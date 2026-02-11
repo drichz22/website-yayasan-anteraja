@@ -17,8 +17,9 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
 // Change this depending on your hosting provider (Vercel, Netlify etc)
-// https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
 import vercel from "@astrojs/vercel/serverless";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,15 +28,13 @@ export default defineConfig({
   adapter: vercel({
     runtime: "nodejs20.x",
   }),
-  integrations: [
-    sanity({
-      projectId,
-      dataset,
-      // studioBasePath: "/admin",
-      useCdn: false,
-      // `false` if you want to ensure fresh data
-      apiVersion: "2024-12-08", // Set to date of setup to use the latest API version
-    }),
-    react(), // Required for Sanity Studio
-  ],
+  integrations: [sanity({
+    projectId,
+    dataset,
+    // studioBasePath: "/admin",
+    useCdn: false,
+    // `false` if you want to ensure fresh data
+    apiVersion: "2024-12-08", // Set to date of setup to use the latest API version
+  }), // Required for Sanity Studio
+  react(), tailwind()],
 });

@@ -1,10 +1,10 @@
 ---
+import BlogLayout from "../../features/blog/BlogLayout.astro";
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
-import Layout from "../../layouts/Layout.astro";
-import { formatDate } from "../../utils";
-import { urlFor } from "../../utils/image";
-import { getPost, getPosts } from "../../utils/sanity";
+import { formatDate } from "../../shared/utils";
+import { urlFor } from "../../features/blog/sanity/image";
+import { getPost, getPosts } from "../../shared/utils/sanity";
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -19,7 +19,7 @@ const { slug } = Astro.params as Params;
 const post = await getPost(slug);
 ---
 
-<Layout title={post.title!}>
+<BlogLayout title={post.title!}>
   <section class="post">
     {
       post.mainImage ? (
@@ -43,7 +43,7 @@ const post = await getPost(slug);
       </div>
     </div>
   </section>
-</Layout>
+</BlogLayout>
 
 <style>
   .post {

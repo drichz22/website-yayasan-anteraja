@@ -1,6 +1,6 @@
 {
   "name": "website-yayasan-anteraja",
-  "description": "Minimal Astro site with Sanity Studio",
+  "description": "Marketing website with blogs functionality for Amanah Satria Indonesia",
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=astro-app\" \"npm run dev --workspace=studio\""
   },
