@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import footerLogo from "../../shared/assets/Logo.jpeg";
+import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-astro";
+---
+<footer class="w-full lg:px-36 px-16 lg:text-sm text-xs text-gray-800 py-8 border border-t-2 border-gray-200">
+    <div class="grid lg:grid-cols-3 text-start justify-items-start">
+        <!-- Logo -->
+        <Image src={footerLogo} alt="Footer Logo" format="webp" class="w-[25%] h-fit"/>
+
+        <!-- Info -->
+        <div class="flex flex-col gap-5">
+            <h1 class="lg:text-lg text-sm font-bold">Kontak Kami</h1>
+            <div class="flex flex-col gap-4">
+                <!-- Alamat -->
+                <div class="inline-flex items-center gap-4">
+                    <MapPin class="w-5 h-5"/>
+                    <h2 class="lg:text-sm text-xs w-[70%]">Jalan Api</h2>
+                </div>
+                <!-- No Telp -->
+                <div class="inline-flex items-center gap-4">
+                    <Phone class="w-5 h-5"/>
+                    <h2 class="lg:text-sm text-xs w-[70%]">081929498888</h2>
+                </div>
+                <!-- Email -->
+                <div class="inline-flex items-center gap-4">
+                    <Mail class="w-5 h-5"/>
+                    <h2 class="lg:text-sm text-xs w-[70%]">yayasananteraja@gmail.com</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sosial Media -->
+        <div class="flex flex-col gap-5">
+            <h1 class="lg:text-lg text-sm font-bold">Ikuti Kami</h1>
+            <div class="flex flex-row gap-4">
+                <a href="" class="cursor-pointer hover:text-brand-primary transition-colors duration-300 ease-in-out">
+                    <Instagram/>
+                </a>
+                <a href="" class="cursor-pointer hover:text-brand-primary transition-colors duration-300 ease-in-out">
+                    <Facebook/>
+                </a>
+                <a href="" class="cursor-pointer hover:text-brand-primary transition-colors duration-300 ease-in-out">
+                    <Youtube/>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

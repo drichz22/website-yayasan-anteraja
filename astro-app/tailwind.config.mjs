@@ -7,12 +7,24 @@ export default {
 		extend: {
 			colors: {
 				brand: {
-					primary: "#fa027d",
-					secondary: "#0b8ca7",
-					tertiary: "#ffd107"
+					primary: {
+						DEFAULT: "#fa027d",
+						hover: "#d9026c",
+						active: "#b7025c",
+					},
+					secondary: {
+						DEFAULT: "#0b8ca7",
+						hover: "#08778e",
+						active: "#066274",
+					},
+					tertiary: {
+						DEFAULT: "#ffd107",
+						hover: "#e6bc06",
+						active: "#cca705",
+					}
 				}
 			}
-		},
+		}
 	},
 	plugins: [animate],
 }

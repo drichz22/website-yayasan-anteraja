@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../shared/layouts/BaseLayout.astro";
-// import Navbar from "@/components/Navbar.astro";
-// import Footer from "@/components/Footer.astro";
+import Navbar from "../../shared/components/Navbar.astro";
+import Footer from "../../shared/components/Footer.astro";
 
 interface Props {
   title: string;
@@ -11,11 +11,9 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <!-- <Navbar /> -->
-
-  <main class="max-w-7xl mx-auto px-6 space-y-24">
+  <Navbar />
+  <main class="flex-1 pt-20">
     <slot />
   </main>
-
-  <!-- <Footer /> -->
+  <Footer />
 </BaseLayout>

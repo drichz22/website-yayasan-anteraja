@@ -1,15 +1,16 @@
 ---
 // import Card from "../components/Card.astro";
 import MarketingLayout from "../features/marketing/MarketingLayout.astro";
-import { getPosts } from "../features/blog/sanity/queries";
-import Navbar from "../shared/components/Navbar.astro";
+// import { getPosts } from "../features/blog/sanity/queries";
+import Hero from "../features/marketing/components/Hero.astro";
 
-const posts = await getPosts();
+// const posts = await getPosts();
 ---
 
 <MarketingLayout title="Amanah Satria Indonesia">
-  <Navbar/>
-  <section>
-    <!-- {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />} -->
-  </section>  
+  <Hero/>
 </MarketingLayout>
+
+<!-- <section>
+  {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
+</section>   -->
