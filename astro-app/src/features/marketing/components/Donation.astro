@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import donation from "../../../shared/assets/Donation.jpg";
+import { Landmark, Copy, Check } from "lucide-astro";
+---
+
+<section id="donation" class="mt-12 flex items-center justify-center p-8 lg:p-0">
+    <div class="max-w-5xl rounded-lg shadow-lg items-stretch">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Illustration -->
+            <div class="p-12 lg:p-0">
+                <div class="relative h-[500px] lg:h-[725px] overflow-hidden rounded-lg">
+                    <Image src={donation} alt="Donation Illustration" class="w-full h-full object-cover hover:scale-105 transition duration-700"/>
+                </div>
+            </div>
+            <!-- Info -->
+            <div class="flex-col gap-8 px-12 py-6">
+                <h1 class="text-4xl text-brand-secondary font-bold mb-6">OPEN DONASI: BANJIR SUMATERA</h1>
+                <p class="text-base text-gray-800 mb-10">
+                    Pada tanggal 24 November 2025, terjadi musibah banjir bandang dan tanah longsor di Aceh, Sumatera Utara dan Sumatera Barat. Dampaknya masih terasa hingga hari ini.
+                    <br><br><strong>Yayasan Amanah Satria Indonesia</strong> bekerja sama dengan <strong>Tim Anteraja Regional Sumatera</strong> menggalang dana untuk membantu saudara - saudara kita disana.
+                </p>
+                <!-- Info Rek -->
+                <div class="mt-10 p-8 bg-slate-50 rounded-3xl border border-slate-100" id="donate">
+                    <h4 class="font-bold text-lg mb-6 flex items-center gap-4 text-gray-800">
+                        <Landmark/>
+                        <span class="font-bold">Rekening Donasi</span>
+                    </h4>
+                    <div class="grid gap-4">
+                        <div class="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-brand-primary/10 rounded-full flex items-center justify-center font-bold text-xs text-brand-primary">BSI</div>
+                                    <div>
+                                        <p class="text-[10px] text-slate-500 font-bold uppercase">Bank Syariah Indonesia</p>
+                                        <p class="text-lg font-mono font-bold" id="rekBankSyariah">7330424693</p>
+                                    </div>
+                                </div>
+                            <button class="copy-btn p-2 rounded-lg hover:bg-slate-100 transition" data-target="rekBankSyariah">
+                                <Copy class="copy-icon w-4 h-4"/>
+                                <Check class="check-icon w-4 h-4 hidden text-green-500"/>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-brand-secondary/10 rounded-full flex items-center justify-center text-teal font-bold text-xs text-brand-secondary">BM</div>
+                                <div>
+                                    <p class="text-[10px] text-slate-500 font-bold uppercase">Bank Mandiri</p>
+                                    <p class="text-lg font-mono font-bold" id="rekBankMandiri">1300028381450</p>
+                                </div>
+                            </div>
+                            <button class="copy-btn p-2 rounded-lg hover:bg-slate-100 transition" data-target="rekBankMandiri">
+                                <Copy class="copy-icon w-4 h-4"/>
+                                <Check class="check-icon w-4 h-4 hidden text-green-500"/>
+                            </button>
+                        </div>
+                        <div class="pt-2 text-center">
+                            <p class="text-sm font-medium text-slate-500">
+                                Atas Nama: <span class="text-primary font-bold">Amanah Satria Indonesia</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLElement>(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+            const targetId = btn.dataset.target;
+            if (!targetId) return;
+            
+            const text = document.getElementById(targetId)?.innerText;
+            if (!text) return;
+
+            try {
+                await navigator.clipboard.writeText(text);
+
+                const copyIcon = btn.querySelector(".copy-icon");
+                const checkIcon = btn.querySelector(".check-icon");
+
+                if (!copyIcon) return;
+                if (!checkIcon) return;
+
+                // swap icons
+                copyIcon.classList.add("hidden");
+                checkIcon.classList.remove("hidden");
+
+                // revert after 1s
+                setTimeout(() => {
+                    checkIcon.classList.add("hidden");
+                    copyIcon.classList.remove("hidden");
+                }, 1000);
+            } catch (err) {
+                console.error("Copy gagal:", err);
+            }
+        });
+    });
+});
+</script>

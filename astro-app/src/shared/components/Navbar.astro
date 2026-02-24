@@ -16,20 +16,22 @@ const isActive = (href: string) => {
         <!-- Logo -->
         <a href="/" aria-label="Go to Home Page" class="inline-flex items-center gap-2">
             <Image src={navLogo} alt="Navbar Logo" class="w-[48px] h-[48px] cursor-pointer" />
-            <h1 class=" hidden sm:block text-lg text-gray-800 font-bold">AMANAH SATRIA INDONESIA</h1>
+            <h1 class=" hidden sm:block text-lg text-brand-secondary font-bold">AMANAH SATRIA INDONESIA</h1>
         </a>
 
         <!-- Hamburger Icon (Mobile) -->
-        <button class="ml-auto lg:hidden block text-black cursor-pointer" id="menu-toggle" aria-label="Toggle Menu">
+        <div class="ml-auto lg:hidden block text-black cursor-pointer">
             <div class="inline-flex items-center gap-8">
-                <a class="bg-brand-primary hover:bg-brand-primary-hover text-white text-sm font-semibold py-2 px-4 rounded duration-300 transition-colors ease-in-out" href="#donation">
+                <a class="bg-brand-primary hover:bg-brand-primary-hover text-white text-sm font-semibold py-2 px-4 rounded duration-300 transition-colors ease-in-out cursor-pointer" href="#donation">
                     Donasi
                 </a>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path id="hamburgerPath" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
+                <button class="cursor-pointer" id="menu-toggle" aria-label="Toggle Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path id="hamburgerPath" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
-        </button>
+        </div>
 
         <!-- Sidebar -->
         <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-md z-40 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
