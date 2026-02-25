@@ -28,3 +28,32 @@ const { title } = Astro.props;
   </body>
 
 </html>
+
+<!-- Global animation script -->
+<script>
+  function initAnimation() {
+    // Trigger animation when scrolled to the section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains("fade-section-left")) {
+                    entry.target.classList.add("animate-fade-left");
+                } else if (entry.target.classList.contains("fade-section-right")) {
+                    entry.target.classList.add("animate-fade-right");
+                }
+                entry.target.classList.remove("opacity-0");
+            }
+          });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll("[class*='fade-section']").forEach((el) => observer.observe(el));
+  }
+
+  // Run on first load
+  initAnimation();
+
+  //Run after navigation
+  document.addEventListener("astro:page-load", initAnimation);
+</script>
