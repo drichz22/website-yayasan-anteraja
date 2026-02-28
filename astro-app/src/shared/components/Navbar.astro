@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import navLogo from "../../shared/assets/Logo.jpeg";
 
 //Active, Not active state logic
-const currPath = Astro.url.pathname;
+const currPath = Astro.url.pathname;                                                                                                                                
 
 const isActive = (href: string) => {
   if (href === "/") return currPath === "/"; //Init Home active on first load
@@ -61,14 +61,14 @@ const isActive = (href: string) => {
             <li>
                 <a href="/about" class={`nav-link px-2 py-2 transition-colors 
                     ${isActive("/about") ? "text-gray-900" : "text-gray-600 hover:text-gray-900"}`}
-                    aria-current={isActive("/") ? "page" : undefined}>
+                    aria-current={isActive("/about") ? "page" : undefined}>
                     Tentang Kami
                 </a>
             </li>
             <li>
                 <a href="/blog" class={`nav-link px-2 py-2 transition-colors 
                     ${isActive("/blog") ? "text-gray-900" : "text-gray-600 hover:text-gray-900"}`}
-                    aria-current={isActive("/") ? "page" : undefined}>
+                    aria-current={isActive("/blog") ? "page" : undefined}>
                     Blog
                 </a>
             </li>

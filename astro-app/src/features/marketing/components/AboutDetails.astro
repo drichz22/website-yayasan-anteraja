@@ -1,0 +1,167 @@
+---
+import { Lightbulb, Target } from "lucide-astro";
+import { Image } from "astro:assets";
+
+import peran1 from "../../../shared/assets/Peran-1.jpg";
+import peran2 from "../../../shared/assets/Peran-2.jpg";
+import peran3 from "../../../shared/assets/Peran-3.jpg";
+import peran4 from "../../../shared/assets/Peran-4.jpg";
+
+import program1 from "../../../shared/assets/Program-1.jpg";
+import program2 from "../../../shared/assets/Program-2.jpg";
+import program3 from "../../../shared/assets/Program-3.jpg";
+---
+
+<section id="aboutDetails" class="mt-16 px-24 py-12">
+    <div class="flex flex-col gap-16">
+        <!-- Visi & Misi -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch justify-center">
+            <!-- Visi -->
+            <div class="max-w-xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
+                <div class="flex flex-col">
+                    <div class="inline-flex items-center gap-4 text-brand-secondary mb-4">
+                        <Lightbulb class="w-7 h-7"/>
+                        <h1 class="text-4xl font-bold">VISI</h1>
+                    </div>
+                    <ul class="list-disc font-medium"> 
+                        <li class="mb-2">Mendorong solidaritas sosial dan kemanusiaan</li>
+                        <li class="mb-2">Memberikan manfaat langsung kepada masyarakat yang membutuhkan</li>
+                        <li class="mb-2">Mendukung pembangunan sosial yang inklusif dan berkelanjutan</li>
+                        <li>Menjadi jembatan kolaborasi antara perusahaan, komunitas, dan masyarakat</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Misi -->
+            <div class="max-w-xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
+                <div class="flex flex-col">
+                    <div class="inline-flex items-center gap-4 text-brand-secondary mb-4">
+                        <Target class="w-7 h-7"/>
+                        <h1 class="text-4xl font-bold">MISI</h1>
+                    </div>
+                    <ul class="list-disc font-medium"> 
+                        <li class="mb-2">Menyelenggarakan program bantuan sosial dan kemanusiaan secara tepat sasaran</li>
+                        <li class="mb-2">Memberdayakan masyarakat melalui kegiatan sosial dan edukasi</li>
+                        <li class="mb-2">Menyalurkan bantuan secara transparan dan bertanggung jawab</li>
+                        <li class="mb-2">Mengajak partisipasi aktif karyawan, mitra, dan masyarakat dalam kegiatan sosial</li>
+                        <li>Memberikan respon cepat terhadap situasi darurat dan bencana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peran -->
+        <div class="flex flex-col gap-10">
+            <h1 class="text-4xl font-bold text-brand-secondary fade-section-right opacity-0">PERAN KAMI</h1>
+            <h2 class="text-lg font-medium text-gray-800 fade-section-left opacity-0">
+                Yayasan Amanah Satria Indonesia merupakan bagian dari komitmen sosial <strong class="text-brand-primary">AnterAja</strong> dalam memberikan kontribusi positif di luar layanan logistik.
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-section-right opacity-0">
+                <!-- Peran 1 -->
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col gap-8 py-4 px-6">
+                        <Image src={peran1} alt="Peran CSR Illustration" class="w-full h-fit rounded-lg"/>
+                        <p class="text-gray-900 text-justify">
+                            Menjadi wadah resmi kegiatan tanggung jawab sosial perusahaan (CSR)
+                        </p>
+                    </div>
+                </div>
+                <!-- Peran 2 -->
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col gap-8 py-4 px-6">
+                        <Image src={peran2} alt="Peran Bantuan Sosial Illustration" class="w-full h-fit rounded-lg"/>
+                        <p class="text-gray-900 text-justify">
+                            Mengelola dan menyalurkan bantuan sosial dari ekosistem <strong class="text-brand-primary">AnterAja</strong>
+                        </p>
+                    </div>
+                </div>
+                <!-- Peran 3 -->
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col gap-8 py-4 px-6">
+                        <Image src={peran3} alt="Peran Karyawan Illustration" class="w-full h-fit rounded-lg"/>
+                        <p class="text-gray-900 text-justify">
+                            Mendukung keterlibatan karyawan dalam aksi sosial dan relawan
+                        </p>
+                    </div>
+                </div>
+                <!-- Peran 4 -->
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col gap-8 py-4 px-6">
+                        <Image src={peran4} alt="Peran Social Impact Illustration" class="w-full h-fit rounded-lg"/>
+                        <p class="text-gray-900 text-justify">
+                            Memperluas dampak sosial melalui kolaborasi regional dan nasional
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program -->
+        <div class="flex flex-col gap-20">
+            <h1 class="text-4xl font-bold text-brand-secondary fade-section-right opacity-0">PROGRAM KAMI</h1>
+            <!-- Bantuan Kemanusiaan -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-section-right opacity-0">
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col p-8">
+                        <h2 class="text-3xl text-brand-primary font-bold mb-4">Bantuan Kemanusiaan</h2>
+                        <h3 class="text-lg font-medium mb-8">
+                            Kami berkomitmen dalam memberikan bantuan kemanusiaan kepada mereka yang terdampak krisis.
+                        </h3>
+                        <!-- Desc -->
+                        <div class="text-gray-600">
+                            <p class="mb-1">Program kami termasuk antara lain:</p>
+                            <ul class="list-disc pl-5">
+                                <li>Respons cepat bencana alam</li>
+                                <li>Distribusi bantuan darurat</li>
+                                <li>Dukungan bagi masyarakat terdampak krisis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <Image src={program1} alt="Program Bantuan Kemanusiaan Illustration" class="w-full h-fit rounded-lg"/>
+            </div>
+            <!-- Pendidikan & Pemberdayaan -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-section-left opacity-0">
+                <Image src={program2} alt="Program Pendidikan Illustration" class="w-full h-fit rounded-lg"/>
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col p-8">
+                        <h2 class="text-3xl text-brand-primary font-bold mb-4">Pendidikan dan Pemberdayaan</h2>
+                        <h3 class="text-lg font-medium mb-8">
+                            Edukasi merupakan penentu krusial masa depan bangsa. Kami ingin ikut menolong mewujudkan adanya edukasi yang layak bagi seluruh masyarakat Indonesia.
+                        </h3>
+                        <!-- Desc -->
+                        <div class="text-gray-600">
+                            <p class="mb-1">Program kami termasuk antara lain:</p>
+                            <ul class="list-disc pl-5">
+                                <li>Bantuan pendidikan dan pelatihan</li>
+                                <li>Program pengembangan masyarakat</li>
+                                <li>Dukungan kegiatan sosial berbasis komunitas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Kepedulian Sosial -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-section-right opacity-0">
+                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
+                    <div class="flex flex-col p-8">
+                        <h2 class="text-3xl text-brand-primary font-bold mb-4">Kepedulian Sosial</h2>
+                        <h3 class="text-lg font-medium mb-8">
+                            Kami mempunyai insentif untuk peduli dan membantu masyarakat yang kurang mampu.
+                        </h3>
+                        <!-- Desc -->
+                        <div class="text-gray-600">
+                            <p class="mb-1">Program kami termasuk antara lain:</p>
+                            <ul class="list-disc pl-5">
+                                <li>Santunan dan bantuan sosial</li>
+                                <li>Program berbagi untuk masyarakat kurang mampu</li>
+                                <li>Kegiatan sosial kolaboratif bersama <span class="italic">volunteers</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <Image src={program3} alt="Program Kepedulian Sosial Illustration" class="w-full h-fit rounded-lg"/>
+            </div>
+        </div>
+    </div>
+</section>
