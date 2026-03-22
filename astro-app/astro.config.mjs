@@ -17,7 +17,7 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
 // Change this depending on your hosting provider (Vercel, Netlify etc)
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 import tailwind from "@astrojs/tailwind";
 
