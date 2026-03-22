@@ -1,0 +1,42 @@
+---
+import BlogLayout from "../features/blog/BlogLayout.astro";
+import ContentEmpty from "../features/blog/components/ContentEmpty.astro"
+import Card from "../features/blog/components/Card.astro";
+import Pagination from "../shared/components/Pagination.astro";
+
+import { getHeadlinePost, getPosts } from "../features/blog/sanity/queries";
+import CardHeadline from "../features/blog/components/CardHeadline.astro";
+const posts = await getPosts();
+const headlines  = await getHeadlinePost();
+---
+
+<BlogLayout title="Blog">
+    <div class="flex flex-col justify-center py-24 px-16">
+        <!-- Title -->
+        <div class="mb-14">
+             <h1 class="text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-4">Blog & Update
+                <span class="text-brand-primary italic">Relawan</span>
+            </h1>
+            <h2 class="text-lg lg:text-xl text-gray-500">
+                Ikuti perkembangan terbaru misi kemanusiaan dan penyaluran bantuan kami.
+            </h2>
+        </div>
+
+        <!-- HEADLINE -->
+        {headlines && (
+            <div class="mb-16">
+                <CardHeadline post={headlines} />
+            </div>
+        )}
+
+        <!-- Posts -->
+        {posts.length ? posts.map((post) => 
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-section-right opacity-0 mb-8">
+                <Card post={post} />
+            </section>
+        ) : <ContentEmpty/>}
+
+        <!-- Pagination -->
+        <Pagination/>
+    </div>
+</BlogLayout>

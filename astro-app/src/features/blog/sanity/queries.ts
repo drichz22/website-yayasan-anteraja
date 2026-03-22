@@ -5,7 +5,13 @@ import groq from "groq";
 
 export async function getPosts(): Promise<Post[]> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "post" && (isHeadline != true || !defined(isHeadline)) && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
+export async function getHeadlinePost(): Promise<Post | null> {
+  return await sanityClient.fetch(
+    groq`*[_type == "post" && isHeadline == true && defined(slug.current)][0]`
   );
 }
 
@@ -22,8 +28,9 @@ export interface Post {
   _type: "post";
   _createdAt: string;
   title?: string;
+  category?: string;
   slug: Slug;
-  excerpt?: string;
+  description?: string;
   mainImage?: ImageAsset & { alt?: string };
   body: PortableTextBlock[];
 }
