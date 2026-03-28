@@ -1,17 +1,36 @@
+---
+const { page, totalPages } = Astro.props;
+---
+
 <div class="flex space-x-1 justify-center">
-  <button class="rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary focus:text-white focus:bg-brand-primary focus:border-brand-primary active:border-brand-primary active:text-white active:bg-brand-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+  <!-- Prev -->
+  <a href={`?page=${page - 1}`} data-astro-reload>
+    <button disabled={page === 1} class="ml-2 rounded-md border border-slate-300 py-2 px-3 text-sm transition-all shadow-sm
+      disabled:pointer-events-none disabled:opacity-50
+      text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary">
       Prev
-  </button>
-  <button class="min-w-9 rounded-md bg-brand-primary py-2 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-brand-primary focus:shadow-none active:bg-brand-primary hover:bg-brand-primary active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-      1
-  </button>
-  <button class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary focus:text-white focus:bg-brand-primary focus:border-brand-primary active:border-brand-primary active:text-white active:bg-brand-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-      2
-  </button>
-  <button class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary focus:text-white focus:bg-brand-primary focus:border-brand-primary active:border-brand-primary active:text-white active:bg-brand-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-      3
-  </button>
-  <button class="min-w-9 rounded-md border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary focus:text-white focus:bg-brand-primary focus:border-brand-primary active:border-brand-primary active:text-white active:bg-brand-primary disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+    </button>
+  </a>
+
+  <!-- Numbers -->
+  {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+    <a href={`?page=${p}`} data-astro-reload>
+      <button class={`ml-2 min-w-9 rounded-md py-2 px-3 text-sm transition-all shadow-md
+        ${p === page
+          ? "bg-brand-primary text-white border-transparent"
+          : "border border-slate-300 text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary"
+        }`}>
+        {p}
+      </button>
+    </a>
+  ))}
+
+  <!-- Next -->
+  <a href={`?page=${page + 1}`} data-astro-reload>
+    <button disabled={page === totalPages} class="ml-2 rounded-md border border-slate-300 py-2 px-3 text-sm transition-all shadow-sm
+      disabled:pointer-events-none disabled:opacity-50
+      text-slate-600 hover:text-white hover:bg-brand-primary hover:border-brand-primary">
       Next
-  </button>
+    </button>
+  </a>
 </div>

@@ -1,13 +1,21 @@
 ---
+export const prerender = false;
+
 import BlogLayout from "../features/blog/BlogLayout.astro";
 import ContentEmpty from "../features/blog/components/ContentEmpty.astro"
 import Card from "../features/blog/components/Card.astro";
 import Pagination from "../shared/components/Pagination.astro";
 
-import { getHeadlinePost, getPosts } from "../features/blog/sanity/queries";
+import { getHeadlinePost, getPosts, getPostCount } from "../features/blog/sanity/queries";
 import CardHeadline from "../features/blog/components/CardHeadline.astro";
-const posts = await getPosts();
-const headlines  = await getHeadlinePost();
+const page = Number(Astro.url.searchParams.get("page") || 1);
+const count = await getPostCount();
+const totalPages = count <= 3 ? 1: Math.ceil((count - 3) / 6) + 1;
+
+const posts = await getPosts(page);
+const headlines  = await getHeadlinePost(page);
+const hasHeadline = !!headlines;
+const hasPosts = posts.length > 0;
 ---
 
 <BlogLayout title="Blog">
@@ -23,20 +31,25 @@ const headlines  = await getHeadlinePost();
         </div>
 
         <!-- HEADLINE -->
-        {headlines && (
+        {hasHeadline && (
             <div class="mb-16">
                 <CardHeadline post={headlines} />
             </div>
         )}
 
         <!-- Posts -->
-        {posts.length ? posts.map((post) => 
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-section-right opacity-0 mb-8">
-                <Card post={post} />
+        {hasPosts && (
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                {posts.map((post) => (
+                    <Card post={post} />
+                ))}
             </section>
-        ) : <ContentEmpty/>}
+        )}
+
+        <!-- Empty State -->
+        {!hasHeadline && !hasPosts && <ContentEmpty/>}
 
         <!-- Pagination -->
-        <Pagination/>
+        {(hasHeadline || hasPosts) && <Pagination page={page} totalPages={totalPages}/>}
     </div>
 </BlogLayout>
