@@ -11,12 +11,12 @@ import program1 from "../../../shared/assets/Program-1.png";
 import program2 from "../../../shared/assets/Program-2.jpeg";
 ---
 
-<section id="aboutDetails" class="mt-16 px-24 py-12">
+<section id="aboutDetails" class="px-8 sm:px-16 md:px-12 py-24">
     <div class="flex flex-col gap-16">
         <!-- Visi & Misi -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch justify-center fade-section-right ">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch fade-section-right">
             <!-- Visi -->
-            <div class="max-w-xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
+            <div class="max-w-2xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
                 <div class="flex flex-col">
                     <div class="inline-flex items-center gap-4 text-brand-secondary mb-4">
                         <Lightbulb class="w-7 h-7"/>
@@ -32,7 +32,7 @@ import program2 from "../../../shared/assets/Program-2.jpeg";
             </div>
     
             <!-- Misi -->
-            <div class="max-w-xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
+            <div class="max-w-2xl rounded-lg shadow-md py-6 px-12 hover:scale-110 transition duration-700">
                 <div class="flex flex-col">
                     <div class="inline-flex items-center gap-4 text-brand-secondary mb-4">
                         <Target class="w-7 h-7"/>
@@ -93,7 +93,7 @@ import program2 from "../../../shared/assets/Program-2.jpeg";
         </div>
 
         <!-- Program -->
-        <div class="flex flex-col gap-20">
+        <div class="flex flex-col gap-16">
             <h1 class="text-4xl font-bold text-brand-secondary fade-section-right opacity-0">PROGRAM KAMI</h1>
             <!-- Rutin -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-section-right opacity-0">
@@ -118,7 +118,6 @@ import program2 from "../../../shared/assets/Program-2.jpeg";
             </div>
             <!-- Tidak Rutin -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center fade-section-left opacity-0">
-                <Image src={program2} alt="Program Pendidikan Illustration" class="w-full h-fit rounded-lg"/>
                 <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
                     <div class="flex flex-col p-8">
                         <h2 class="text-3xl text-brand-primary font-bold mb-4">Kegiatan Tidak Rutin</h2>
@@ -138,6 +137,7 @@ import program2 from "../../../shared/assets/Program-2.jpeg";
                         </div>
                     </div>
                 </div>
+                <Image src={program2} alt="Program Pendidikan Illustration" class="w-full aspect-[4/3] rounded-lg object-cover"/>
             </div>
         </div>
     </div>
