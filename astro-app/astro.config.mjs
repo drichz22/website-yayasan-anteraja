@@ -17,7 +17,7 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
 // Change this depending on your hosting provider (Vercel, Netlify etc)
-import vercel from "@astrojs/vercel";
+import vercel from "@astrojs/vercel/serverless";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -25,7 +25,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   output: "hybrid",
-  adapter: vercel(),
+  adapter: vercel({
+    runtime: "nodejs20.x"
+  }),
   integrations: [sanity({
     projectId,
     dataset,
