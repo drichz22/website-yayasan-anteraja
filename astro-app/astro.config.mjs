@@ -6,7 +6,7 @@ const {
   PUBLIC_SANITY_STUDIO_DATASET,
   PUBLIC_SANITY_PROJECT_ID,
   PUBLIC_SANITY_DATASET,
-} = loadEnv(import.meta.env.MODE, process.cwd(), "");
+} = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
 import { defineConfig } from "astro/config";
 
 // Different environments use different variables
