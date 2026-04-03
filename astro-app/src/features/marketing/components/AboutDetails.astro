@@ -2,10 +2,7 @@
 import { Lightbulb, Target } from "lucide-astro";
 import { Image } from "astro:assets";
 
-import peran1 from "../../../shared/assets/Peran-1.jpg";
-import peran2 from "../../../shared/assets/Peran-2.jpg";
-import peran3 from "../../../shared/assets/Peran-3.jpg";
-import peran4 from "../../../shared/assets/Peran-4.jpg";
+import maksudTujuan from "../../../shared/assets/MaksudTujuan.jpg";
 
 import program1 from "../../../shared/assets/Program-1.png";
 import program2 from "../../../shared/assets/Program-2.jpeg";
@@ -44,44 +41,15 @@ import program2 from "../../../shared/assets/Program-2.jpeg";
 
         <!-- Peran -->
         <div class="flex flex-col gap-10">
-            <h1 class="text-4xl font-bold text-brand-secondary fade-section-right opacity-0">PERAN KAMI</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-section-right opacity-0">
-                <!-- Peran 1 -->
-                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
-                    <div class="flex flex-col gap-8 py-4 px-6">
-                        <Image src={peran1} alt="Peran CSR Illustration" class="w-full h-fit rounded-lg"/>
-                        <p class="text-gray-900 text-justify">
-                            Menjadi salah satu wadah kegiatan tanggung jawab sosial perusahaan (CSR) sponsor
-                        </p>
-                    </div>
-                </div>
-                <!-- Peran 2 -->
-                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
-                    <div class="flex flex-col gap-8 py-4 px-6">
-                        <Image src={peran2} alt="Peran Bantuan Sosial Illustration" class="w-full h-fit rounded-lg"/>
-                        <p class="text-gray-900 text-justify">
-                            Mengelola dan menyalurkan bantuan sosial dari ekosistem sponsor
-                        </p>
-                    </div>
-                </div>
-                <!-- Peran 3 -->
-                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
-                    <div class="flex flex-col gap-8 py-4 px-6">
-                        <Image src={peran3} alt="Peran Karyawan Illustration" class="w-full h-fit rounded-lg"/>
-                        <p class="text-gray-900 text-justify">
-                            Mendukung keterlibatan pihak sponsor dalam aksi sosial dan relawan
-                        </p>
-                    </div>
-                </div>
-                <!-- Peran 4 -->
-                <div class="rounded-lg shadow-md hover:scale-110 transition duration-700">
-                    <div class="flex flex-col gap-8 py-4 px-6">
-                        <Image src={peran4} alt="Peran Social Impact Illustration" class="w-full h-fit rounded-lg"/>
-                        <p class="text-gray-900 text-justify">
-                            Memperluas dampak sosial melalui kolaborasi regional dan nasional
-                        </p>
-                    </div>
-                </div>
+            <h1 class="text-4xl font-bold text-brand-secondary fade-section-right opacity-0">MAKSUD DAN TUJUAN</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <Image src={maksudTujuan} alt="Maksud dan Tujuan Illustration" class="w-full h-fit rounded-lg fade-section-right opacity-0"/>
+                <p class="text-xl text-justify font-medium fade-section-right opacity-0">
+                    Mendirikan badan hukum nirlaba diperuntukkan untuk mencapai tujuan sosial kemanusiaan seperti 
+                    <strong class="text-brand-primary">membantu masyarakat yang terkena musibah/bencana</strong> 
+                    serta mengatasi masalah sosial lainnya, dengan fokus utama
+                    <strong class="text-brand-primary">meningkatkan kesejahteraan masyarakat tanpa mencari keuntungan</strong>
+                </p>
             </div>
         </div>
 
